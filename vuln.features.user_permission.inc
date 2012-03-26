@@ -1,7 +1,11 @@
 <?php
+/**
+ * @file
+ * vuln.features.user_permission.inc
+ */
 
 /**
- * Implementation of hook_user_default_permissions().
+ * Implements hook_user_default_permissions().
  */
 function vuln_user_default_permissions() {
   $permissions = array();
@@ -10,9 +14,33 @@ function vuln_user_default_permissions() {
   $permissions['create vuln_content content'] = array(
     'name' => 'create vuln_content content',
     'roles' => array(
-      '0' => '<script type="text/javascript">alert("Vuln - permissions:roles");</script>Vuln',
-      '1' => 'authenticated user',
+      0 => 'authenticated user',
     ),
+    'module' => 'node',
+  );
+
+  // Exported permission: delete any vuln_content content
+  $permissions['delete any vuln_content content'] = array(
+    'name' => 'delete any vuln_content content',
+    'roles' => array(),
+  );
+
+  // Exported permission: delete own vuln_content content
+  $permissions['delete own vuln_content content'] = array(
+    'name' => 'delete own vuln_content content',
+    'roles' => array(),
+  );
+
+  // Exported permission: edit any vuln_content content
+  $permissions['edit any vuln_content content'] = array(
+    'name' => 'edit any vuln_content content',
+    'roles' => array(),
+  );
+
+  // Exported permission: edit own vuln_content content
+  $permissions['edit own vuln_content content'] = array(
+    'name' => 'edit own vuln_content content',
+    'roles' => array(),
   );
 
   return $permissions;

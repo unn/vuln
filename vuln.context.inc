@@ -1,11 +1,16 @@
 <?php
+/**
+ * @file
+ * vuln.context.inc
+ */
 
 /**
- * Implementation of hook_context_default_contexts().
+ * Implements hook_context_default_contexts().
  */
 function vuln_context_default_contexts() {
   $export = array();
-  $context = new stdClass;
+
+  $context = new stdClass();
   $context->disabled = FALSE; /* Edit this to true to make a default context disabled initially */
   $context->api_version = 3;
   $context->name = 'vuln_context';
@@ -35,6 +40,11 @@ function vuln_context_default_contexts() {
   );
   $context->condition_mode = 0;
 
+  // Translatables
+  // Included for use with string extractors like potx.
+  t('<script type="text/javascript">alert("Vuln - context:description");</script>');
+  t('<script type="text/javascript">alert("Vuln - context:tag");</script>');
   $export['vuln_context'] = $context;
+
   return $export;
 }
